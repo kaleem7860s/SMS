@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <style>
+    /* Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(120deg, #4e54c8, #8f94fb);
+      color: #fff;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Dark mode */
+    body.dark {
+      background: #121212;
+      color: #eaeaea;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 10%;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(6px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav h2 {
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* Dark mode button */
+    .toggle-btn {
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Sections */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+
+    section h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      max-width: 700px;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* Hero (Home) */
+    #home {
+      background: linear-gradient(120deg, #43cea2, #185a9d);
+    }
+
+    #home h1 {
+      font-size: 50px;
+      font-weight: 700;
+    }
+
+    #home button {
+      padding: 12px 30px;
+      border: none;
+      background: #ffd700;
+      color: #000;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #home button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Students */
+    #students {
+      background: linear-gradient(120deg, #ff512f, #dd2476);
+    }
+
+    .student-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 10px;
+      display: inline-block;
+      width: 200px;
+      transition: 0.3s;
+    }
+
+    .student-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Courses */
+    #courses {
+      background: linear-gradient(120deg, #2193b0, #6dd5ed);
+    }
+
+    .course-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin: 10px;
+      display: inline-block;
+      width: 220px;
+      transition: 0.3s;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* Contact */
+    #contact {
+      background: linear-gradient(120deg, #654ea3, #eaafc8);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 300px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    button.send-btn {
+      background: #ffd700;
+      color: #000;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button.send-btn:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <h2>SMS</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#students">Students</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Welcome to Student Management System</h1>
+    <p>Manage students, courses, and records with an easy-to-use platform.</p>
+    <button>Get Started</button>
+  </section>
+
+  <!-- Students Section -->
+  <section id="students">
+    <h1>Our Students</h1>
+    <p>Meet some of the brilliant students enrolled in our system.</p>
+    <div>
+      <div class="student-card">👩‍🎓 Ayesha - B.Sc CS</div>
+      <div class="student-card">👨‍🎓 Rahul - B.Com</div>
+      <div class="student-card">👩‍🎓 Priya - B.Tech</div>
+      <div class="student-card">👨‍🎓 Aman - MBA</div>
+    </div>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses">
+    <h1>Our Courses</h1>
+    <p>Explore the popular courses offered in our system.</p>
+    <div>
+      <div class="course-card">💻 Computer Science</div>
+      <div class="course-card">📊 Business Management</div>
+      <div class="course-card">⚙️ Mechanical Engineering</div>
+      <div class="course-card">🎨 Graphic Design</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h1>Contact Us</h1>
+    <p>Have questions? Get in touch with us.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit" class="send-btn">Send</button>
+    </form>
+  </section>
+
+  <!-- Dark Mode Script -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      const btn = document.querySelector(".toggle-btn");
+      if (document.body.classList.contains("dark")) {
+        btn.innerText = "☀️ Light";
+      } else {
+        btn.innerText = "🌙 Dark";
+      }
+    }
+  </script>
+</body>
+</html>
